@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 52fb7b0ac2c64e641a90e038082c674a, type: 2}
-  radius: 1
+  radius: 5
   thickness: 0.2
 --- !u!33 &4951396199111247395
 MeshFilter:
@@ -74,7 +74,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 52fb7b0ac2c64e641a90e038082c674a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,4 +119,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - []
+    - - {x: 2.4999998, y: 4.3301272}
+      - {x: 2.3999999, y: 4.1569223}
+      - {x: 4.8, y: 0}
+      - {x: 2.3999996, y: -4.1569223}
+      - {x: -2.3999996, y: -4.1569223}
+      - {x: -4.8, y: -0.00000041962934}
+      - {x: -2.4000003, y: 4.156922}
+      - {x: -2.5000002, y: 4.330127}
+      - {x: -5, y: -0.0000004371139}
+      - {x: -2.4999995, y: -4.3301272}
+      - {x: 2.4999995, y: -4.3301272}
+      - {x: 5, y: 0}

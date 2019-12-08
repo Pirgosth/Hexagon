@@ -19,21 +19,37 @@ public class HexagonMesh : MonoBehaviour
         return vertices;
     }
 
+    Vector2[] getPolyPoints(Vector3[] vertices)
+    {
+        Vector2[] points = new Vector2[6];
+        for(int i=0; i<6; i++)
+        {
+            points[i] = vertices[i];
+        }
+
+        return points;
+    }
+
     void Start()
     {
         Mesh mesh = new Mesh();
 
-        mesh.vertices = getVertices();
+        var newVertices = getVertices();
+
+        mesh.vertices = newVertices;
         mesh.triangles = new int[] {0, 1, 4, 1, 2, 3, 1, 3, 4, 0, 4, 5};
 
         GetComponent<MeshFilter>().sharedMesh = mesh;
         GetComponent<MeshRenderer>().material = material;
+        GetComponent<PolygonCollider2D>().points = getPolyPoints(newVertices);
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetComponent<MeshFilter>().sharedMesh.vertices = getVertices();
+        var newVertices = getVertices();
+        GetComponent<MeshFilter>().sharedMesh.vertices = newVertices;
         GetComponent<MeshRenderer>().material = material;
+        GetComponent<PolygonCollider2D>().points = getPolyPoints(newVertices);
     }
 }

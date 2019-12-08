@@ -6,7 +6,7 @@ using UnityEngine;
 public class OpenHexagonMesh : MonoBehaviour
 {
     public Material material;
-    public int radius = 1;
+    public float radius = 1;
     public float thickness = 0.2f;
     // Start is called before the first frame update
 
@@ -45,7 +45,7 @@ public class OpenHexagonMesh : MonoBehaviour
         mesh.vertices = vertices;
         mesh.triangles = new int[] { 0, 1, 6, 1, 6, 7, 2, 8, 9, 2, 3, 9, 3, 9, 10, 3, 4, 10, 5, 10, 11, 4, 5, 10, 0, 5, 11, 0, 6, 11 };
 
-        GetComponent<MeshFilter>().mesh = mesh;
+        GetComponent<MeshFilter>().sharedMesh = mesh;
         GetComponent<MeshRenderer>().material = material;
         GetComponent<PolygonCollider2D>().points = getPolyPoints(vertices);
     }
@@ -54,7 +54,7 @@ public class OpenHexagonMesh : MonoBehaviour
     void Update()
     {
         var vertices = getVertices();
-        GetComponent<MeshFilter>().mesh.vertices = vertices;
+        GetComponent<MeshFilter>().sharedMesh.vertices = vertices;
         GetComponent<PolygonCollider2D>().points = getPolyPoints(vertices);
         GetComponent<MeshRenderer>().material = material;
     }
