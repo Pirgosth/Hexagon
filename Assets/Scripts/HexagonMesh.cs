@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class HexagonMesh : MonoBehaviour
 {
     public Material material;
@@ -25,13 +26,14 @@ public class HexagonMesh : MonoBehaviour
         mesh.vertices = getVertices();
         mesh.triangles = new int[] {0, 1, 4, 1, 2, 3, 1, 3, 4, 0, 4, 5};
 
-        GetComponent<MeshFilter>().mesh = mesh;
+        GetComponent<MeshFilter>().sharedMesh = mesh;
         GetComponent<MeshRenderer>().material = material;
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetComponent<MeshFilter>().mesh.vertices = getVertices();
+        GetComponent<MeshFilter>().sharedMesh.vertices = getVertices();
+        GetComponent<MeshRenderer>().material = material;
     }
 }

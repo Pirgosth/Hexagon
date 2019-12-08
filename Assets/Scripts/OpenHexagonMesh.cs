@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class OpenHexagonMesh : MonoBehaviour
 {
     public Material material;
@@ -55,5 +56,6 @@ public class OpenHexagonMesh : MonoBehaviour
         var vertices = getVertices();
         GetComponent<MeshFilter>().mesh.vertices = vertices;
         GetComponent<PolygonCollider2D>().points = getPolyPoints(vertices);
+        GetComponent<MeshRenderer>().material = material;
     }
 }
