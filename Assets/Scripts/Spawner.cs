@@ -40,7 +40,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((int)Time.timeSinceLevelLoad > nextLevel && speed <= 60)
+        if((int)Time.timeSinceLevelLoad > nextLevel && speed < 60)
         {
             nextLevel += 10;
             speed += 5;

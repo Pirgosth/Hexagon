@@ -10,7 +10,8 @@ public class Timer : MonoBehaviour
         int seconds = ((int)time)%60;
         int ms = (int)((time- (int)time) * 100.0f);
         int minutes = ((int)time) / 60;
-        return (minutes < 10 ? "0" : "") + minutes.ToString() + "::" + (seconds < 10 ? "0" : "") + seconds.ToString() + "::" + (ms < 10 ? "0" : "") + ms.ToString();
+        string sep = ".";
+        return (minutes < 10 ? "0" : "") + minutes.ToString() + sep + (seconds < 10 ? "0" : "") + seconds.ToString() + sep + (ms < 10 ? "0" : "") + ms.ToString();
     }
     // Start is called before the first frame update
     void Start()
