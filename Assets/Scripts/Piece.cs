@@ -27,6 +27,10 @@ public class Piece : MonoBehaviour
             spawner.addPiece();
             trigger = true;
         }
+        if(GetComponent<OpenHexagonMesh>().radius <= 1)
+        {
+            Destroy(transform.gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,6 +39,5 @@ public class Piece : MonoBehaviour
         {
             SceneManager.LoadScene("Game");
         }
-        Destroy(transform.gameObject);
     }
 }
