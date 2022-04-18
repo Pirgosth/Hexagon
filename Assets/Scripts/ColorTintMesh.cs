@@ -92,4 +92,10 @@ public class ColorTintMesh : MonoBehaviour
                 break;
         }
     }
+
+    void OnDestroy()
+    {
+        darkMaterial.color = new Color(min / 255f, min / 255f, max / 255f, darkOpacity / 255f);
+        liteMaterial.color = new Color(min / 255f, min / 255f, max / 255f, liteOpacity / 255.0f);
+    }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public Timer timer;
     public float speed = 3;
     public GameObject hexagon;
     private int nextLevel = 10;
@@ -40,7 +41,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((int)Time.timeSinceLevelLoad > nextLevel && speed < 60)
+        if((int)timer.getTime() > nextLevel && speed < 60)
         {
             nextLevel += 10;
             speed += 5;

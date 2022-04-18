@@ -38,14 +38,14 @@ public class CameraEffects : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if(Time.timeSinceLevelLoad-rotationTimer > timeout)
         {
             rotationTimer = Time.timeSinceLevelLoad;
             rotationDirection *= Random.value < p ? (-1) : 1;
         }
-        transform.Rotate(rotationDirection * Vector3.forward * Time.fixedDeltaTime * speed);
+        transform.Rotate(rotationDirection * Vector3.forward * Time.deltaTime * speed);
 
         GetComponent<Camera>().orthographicSize = getCamSize(Time.timeSinceLevelLoad);
     }
